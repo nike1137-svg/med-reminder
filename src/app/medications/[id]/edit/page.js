@@ -42,16 +42,19 @@ export default function EditMedicationPage() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <Link href="/medications" className="text-slate-400 hover:text-slate-600">
+        <Link
+          href="/medications"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+        >
           ←
         </Link>
-        <h1 className="text-xl font-bold">약 수정</h1>
+        <h1 className="text-2xl font-bold text-slate-900">약 수정</h1>
       </div>
 
       {loading ? (
-        <p className="text-slate-500">불러오는 중…</p>
+        <p className="py-8 text-center text-base text-slate-500">불러오는 중…</p>
       ) : error ? (
-        <p className="text-red-600">{error}</p>
+        <p className="text-base text-red-600">{error}</p>
       ) : (
         <MedicationForm
           initial={initial}

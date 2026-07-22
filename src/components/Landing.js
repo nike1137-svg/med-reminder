@@ -9,18 +9,20 @@ export default function Landing() {
       <div className="mx-auto max-w-2xl px-4 py-14">
         {/* 소개 섹션 */}
         <div className="text-center">
-          <p className="text-4xl">💊</p>
-          <h1 className="mt-3 text-2xl font-bold text-slate-900">MedCheck</h1>
+          <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-600 text-3xl shadow-sm">
+            💊
+          </span>
+          <h1 className="mt-4 text-2xl font-bold text-slate-900">MedCheck</h1>
           <p className="mt-1 font-semibold text-teal-700">복약 관리 알리미</p>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-slate-500">
+          <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-slate-600">
             인지저하·거동불편 어르신은 스스로 복약을 챙기기 어렵습니다.
             MedCheck은 돌봄제공자가 &ldquo;오늘 무엇을 드렸는지&rdquo;를
             기록하고, 교대자·보호자와 공유할 수 있도록 돕는 서비스입니다.
           </p>
         </div>
 
-        {/* 핵심 기능 3가지 */}
-        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        {/* 핵심 기능 4가지 */}
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <FeatureCard
             icon="✅"
             title="오늘의 복약 체크"
@@ -28,13 +30,18 @@ export default function Landing() {
           />
           <FeatureCard
             icon="🔔"
-            title="미완료 강조"
-            desc="아직 복용하지 않은 약을 눈에 띄게 표시합니다."
+            title="놓침 자동 표시"
+            desc="시간이 지나도 안 먹은 약을 빨간색으로 바로 알려줍니다."
           />
           <FeatureCard
             icon="🔒"
             title="내 계정, 내 데이터"
             desc="로그인한 본인의 기록만 안전하게 보이고 관리됩니다."
+          />
+          <FeatureCard
+            icon="✨"
+            title="AI 자동완성"
+            desc="문장으로 말하듯 입력하면 약 이름·시간대를 AI가 채워줍니다."
           />
         </div>
 
@@ -52,7 +59,7 @@ function FeatureCard({ icon, title, desc }) {
     <div className="rounded-xl bg-white p-4 text-center shadow-sm ring-1 ring-slate-200">
       <p className="text-2xl">{icon}</p>
       <p className="mt-1 text-sm font-semibold text-slate-700">{title}</p>
-      <p className="mt-1 text-xs leading-relaxed text-slate-400">{desc}</p>
+      <p className="mt-1 text-xs leading-relaxed text-slate-500">{desc}</p>
     </div>
   );
 }

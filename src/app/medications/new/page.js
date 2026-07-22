@@ -52,18 +52,21 @@ export default function NewMedicationPage() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
-        <Link href="/medications" className="text-slate-400 hover:text-slate-600">
+        <Link
+          href="/medications"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+        >
           ←
         </Link>
-        <h1 className="text-xl font-bold">약 등록</h1>
+        <h1 className="text-2xl font-bold text-slate-900">약 등록</h1>
       </div>
 
       {/* 자연어 자동완성 (실험적 기능) */}
       <div className="rounded-xl border border-teal-100 bg-teal-50/60 p-4">
-        <p className="text-sm font-semibold text-teal-800">
+        <p className="text-base font-semibold text-teal-800">
           ✨ 자연어로 빠르게 입력 <span className="text-teal-500">(베타)</span>
         </p>
-        <p className="mt-1 text-xs text-teal-700/70">
+        <p className="mt-1 text-sm text-teal-700/80">
           예: &ldquo;매일 아침저녁 혈압약 한 알, 식후 30분&rdquo;
         </p>
         <textarea
@@ -71,19 +74,19 @@ export default function NewMedicationPage() {
           onChange={(e) => setAiText(e.target.value)}
           rows={2}
           placeholder="약 정보를 편하게 문장으로 적어보세요"
-          className="mt-2 w-full rounded-lg border border-teal-200 bg-white px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+          className="mt-2 w-full rounded-lg border border-teal-200 bg-white px-4 py-3 text-base focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
         />
         <button
           type="button"
           onClick={callAi}
           disabled={aiLoading || !aiText.trim()}
-          className="mt-2 rounded-lg bg-teal-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-teal-700 disabled:opacity-50"
+          className="mt-2 min-h-[48px] rounded-lg bg-teal-600 px-5 text-base font-semibold text-white hover:bg-teal-700 disabled:opacity-50"
         >
           {aiLoading ? "채우는 중…" : "AI로 채우기"}
         </button>
-        {aiError && <p className="mt-2 text-xs text-red-600">{aiError}</p>}
+        {aiError && <p className="mt-2 text-sm text-red-600">{aiError}</p>}
         {aiResult && !aiError && (
-          <p className="mt-2 text-xs text-teal-700">
+          <p className="mt-2 text-sm text-teal-700">
             아래 폼에 채워졌습니다. 맞는지 확인하고 저장해주세요.
           </p>
         )}

@@ -6,6 +6,10 @@ export const metadata = {
   description: "돌봄제공자를 위한 복약 체크·기록 서비스",
 };
 
+export const viewport = {
+  themeColor: "#0d9488",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">

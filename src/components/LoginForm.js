@@ -42,8 +42,8 @@ export default function LoginForm() {
 
   return (
     <div className="mx-auto mt-10 max-w-sm rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-      <h2 className="text-lg font-bold text-slate-900">로그인</h2>
-      <p className="mt-1 mb-5 text-sm text-slate-500">
+      <h2 className="text-xl font-bold text-slate-900">로그인</h2>
+      <p className="mt-1 mb-5 text-base text-slate-600">
         이메일로 로그인 링크를 받습니다.
       </p>
 
@@ -55,23 +55,23 @@ export default function LoginForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+            className="w-full rounded-lg border border-slate-300 px-4 py-4 text-base focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-teal-600 py-2.5 font-semibold text-white hover:bg-teal-700 disabled:opacity-50"
+            className="min-h-[56px] w-full rounded-lg bg-teal-600 text-base font-semibold text-white hover:bg-teal-700 disabled:opacity-50"
           >
             {loading ? "전송 중…" : "로그인 링크 받기"}
           </button>
-          <p className="text-xs leading-relaxed text-slate-400">
+          <p className="text-sm leading-relaxed text-slate-500">
             메일이 도착하지 않으면 스팸함을 확인해주세요. 짧은 시간 안에 여러 번
             요청하면 잠시 발송이 제한될 수 있어요 — 그럴 땐 몇 분 뒤 다시
             시도해주세요.
           </p>
         </form>
       ) : (
-        <div className="rounded-lg bg-teal-50 p-4 text-sm text-teal-800">
+        <div className="rounded-lg bg-teal-50 p-4 text-base text-teal-800">
           <p className="font-semibold">📩 메일을 확인하세요</p>
           <p className="mt-1">
             <strong>{email}</strong> 로 로그인 링크를 보냈습니다. 메일함(스팸함
@@ -88,7 +88,7 @@ export default function LoginForm() {
         </div>
       )}
 
-      {msg && <p className="mt-4 text-sm text-red-600">{msg}</p>}
+      {msg && <p className="mt-4 text-base text-red-600">{msg}</p>}
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function AuthGate({ children }) {
   }, []);
 
   if (session === undefined) {
-    return <p className="p-6 text-slate-400">불러오는 중…</p>;
+    return <p className="p-6 text-base text-slate-400">불러오는 중…</p>;
   }
 
   if (!session) {
@@ -30,25 +30,28 @@ export default function AuthGate({ children }) {
     <>
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-lg items-center justify-between px-4 py-3">
-          <Link href="/" className="text-lg font-bold text-teal-700">
-            💊 MedCheck
+          <Link href="/" className="flex items-center gap-2">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-600 text-base">
+              💊
+            </span>
+            <span className="text-lg font-bold text-slate-900">MedCheck</span>
           </Link>
-          <nav className="flex items-center gap-1 text-sm">
+          <nav className="flex items-center gap-1 text-base">
             <Link
               href="/"
-              className="rounded-md px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100"
+              className="rounded-md px-3 py-2 font-medium text-slate-600 hover:bg-slate-100"
             >
               오늘
             </Link>
             <Link
               href="/medications"
-              className="rounded-md px-3 py-1.5 font-medium text-slate-600 hover:bg-slate-100"
+              className="rounded-md px-3 py-2 font-medium text-slate-600 hover:bg-slate-100"
             >
               약 목록
             </Link>
             <button
               onClick={() => supabase.auth.signOut()}
-              className="ml-1 rounded-md px-3 py-1.5 font-medium text-slate-400 hover:bg-slate-100"
+              className="ml-1 rounded-md px-3 py-2 font-medium text-slate-400 hover:bg-slate-100"
             >
               로그아웃
             </button>
