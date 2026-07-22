@@ -10,12 +10,14 @@
 - **약 등록/수정/삭제**: 약 이름·용량·복용 시간대·메모 관리 (CRUD)
 - **복용 기록**: 체크한 시각을 저장, 날짜별로 관리
 - **이메일 로그인 + 사용자별 데이터 분리**: Supabase Auth 매직링크 로그인, Row-Level Security로 로그인한 사용자 본인의 데이터만 조회/수정 가능
+- **자연어 약 등록 자동완성 (베타)**: "매일 아침저녁 혈압약 한 알" 같은 문장을 AI가 이름·용량·시간대로 구조화. CrewAI + Vertex AI(Gemini) 에이전트를 별도 서버에서 돌려 API로 연동 — 새로운 의료정보를 생성하지 않고 사용자 입력만 정리하도록 설계, 결과는 저장 전 사용자가 직접 확인
 
 ## Technology Foundation
 
 - **프론트엔드**: Next.js 16 (App Router), Tailwind CSS
 - **백엔드**: Next.js Route Handlers (API)
 - **데이터베이스 / 인증**: Supabase (PostgreSQL + Auth, Row-Level Security)
+- **AI 자동완성**: CrewAI + Vertex AI(Gemini 2.5 Flash) — 로컬 서버에서 구동, Cloudflare 터널로 노출
 - **배포**: Vercel
 
 ## Local Development
@@ -41,6 +43,10 @@ Vercel을 통해 배포되어 실제 접속 가능한 URL로 서비스됩니다.
 🔗 https://med-reminder-chi.vercel.app
 
 > 참고: 무료 티어 이메일 발송 제한(rate limit)으로 인해, 로그인 테스트 시 짧은 대기가 필요할 수 있습니다.
+
+### AI 자동완성(베타) 관련 운영 안내
+
+약 등록 화면의 "자연어로 빠르게 입력" 기능은 별도 로컬 서버(CrewAI + Vertex AI)를 Cloudflare 터널로 연결해 제공합니다. **이 서버는 상시 구동이 아니며, 운영자(조경호) PC가 켜져 있는 시간에만 동작합니다.** 해당 기능이 응답하지 않을 때는 안내 메시지가 표시되며, **약 등록/조회/수정/삭제·복약 체크·로그인 등 핵심 기능은 이 기능과 무관하게 항상 정상 동작**합니다.
 
 ## Development Roadmap
 
