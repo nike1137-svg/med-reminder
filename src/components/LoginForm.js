@@ -3,6 +3,18 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 
+// Supabase의 원문 에러(영어)를 사용자가 이해할 수 있는 한국어 안내로 바꾼다.
+function friendlyErrorMessage(error) {
+  const text = error?.message || "";
+  if (/rate limit/i.test(text)) {
+    return "요청이 많아 잠시 이메일 발송이 제한되었습니다. 몇 분 뒤 다시 시도해주세요.";
+  }
+  if (/invalid email/i.test(text)) {
+    return "이메일 주소 형식을 다시 확인해주세요.";
+  }
+  return "전송에 실패했습니다. 잠시 후 다시 시도해주세요.";
+}
+
 // 이메일 → 메일함의 링크 클릭 → 로그인 (Supabase 기본 매직링크 방식)
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -24,7 +36,7 @@ export default function LoginForm() {
       },
     });
     setLoading(false);
-    if (error) return setMsg("전송 실패: " + error.message);
+    if (error) return setMsg(friendlyErrorMessage(error));
     setSent(true);
   }
 
@@ -52,6 +64,11 @@ export default function LoginForm() {
           >
             {loading ? "전송 중…" : "로그인 링크 받기"}
           </button>
+          <p className="text-xs leading-relaxed text-slate-400">
+            메일이 도착하지 않으면 스팸함을 확인해주세요. 짧은 시간 안에 여러 번
+            요청하면 잠시 발송이 제한될 수 있어요 — 그럴 땐 몇 분 뒤 다시
+            시도해주세요.
+          </p>
         </form>
       ) : (
         <div className="rounded-lg bg-teal-50 p-4 text-sm text-teal-800">
