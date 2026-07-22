@@ -42,9 +42,9 @@ export default function LoginForm() {
 
   return (
     <div className="mx-auto mt-10 max-w-sm rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-      <h1 className="text-lg font-bold text-teal-700">💊 MedCheck 로그인</h1>
+      <h2 className="text-lg font-bold text-slate-900">로그인</h2>
       <p className="mt-1 mb-5 text-sm text-slate-500">
-        이메일로 로그인 링크를 받습니다. 사용자별로 복약 데이터가 분리됩니다.
+        이메일로 로그인 링크를 받습니다.
       </p>
 
       {!sent ? (

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
-import LoginForm from "./LoginForm";
+import Landing from "./Landing";
 
 // 앱 전체를 감싸서: 로그인 안 했으면 로그인 화면만, 했으면 헤더+내비+실제 화면을 보여준다.
 export default function AuthGate({ children }) {
@@ -23,7 +23,7 @@ export default function AuthGate({ children }) {
   }
 
   if (!session) {
-    return <LoginForm />;
+    return <Landing />;
   }
 
   return (
