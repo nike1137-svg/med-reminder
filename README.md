@@ -40,6 +40,8 @@ Vercel을 통해 배포되어 실제 접속 가능한 URL로 서비스됩니다.
 
 🔗 https://med-reminder-chi.vercel.app
 
+> 참고: 무료 티어 이메일 발송 제한(rate limit)으로 인해, 로그인 테스트 시 짧은 대기가 필요할 수 있습니다.
+
 ## Development Roadmap
 
 PRD 작성 → 화면/데이터 구조 설계 → 프론트엔드 구현 → 백엔드/API 구현 (CRUD 6종) → DB 연동 (Supabase) → 로그인 및 사용자별 데이터 분리 추가 → 배포.
