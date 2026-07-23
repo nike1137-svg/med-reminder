@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { requireUser } from "@/lib/supabase";
 
 // POST /api/ai/parse-medication — 자연어 문장을 약 등록 폼 값으로 변환
-// 로고스(CrewAI + Vertex AI, 조경호 님 PC에서 터널로 노출)에 위임한다.
+// 로고스(CrewAI + Vertex AI, 운영자 로컬 PC에서 터널로 노출)에 위임한다.
 // 이 기능이 꺼져 있어도(PC가 안 켜져 있음) 수동 입력은 항상 가능해야 하므로,
 // 실패 시 친절한 한국어 안내만 돌려주고 500으로 앱을 깨지 않는다.
 export async function POST(request) {
