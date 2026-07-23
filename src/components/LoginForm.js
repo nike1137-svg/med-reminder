@@ -96,6 +96,17 @@ export default function LoginForm() {
       </button>
 
       {error && <p className="mt-4 text-base text-red-600">{error}</p>}
+
+      {/* 개인정보 안내 — 민감정보(복약)를 다루므로 최소 수집 원칙을 사용자에게도 알린다 */}
+      <div className="mt-5 border-t border-slate-100 pt-4">
+        <p className="text-xs leading-relaxed text-slate-400">
+          🔒 복약 정보는 민감한 건강 정보라, 로그인에 필요한{" "}
+          <strong className="text-slate-500">이메일·비밀번호만</strong> 받습니다.
+          이름·연락처 등은 수집하지 않으며, 등록한 복약 기록은{" "}
+          <strong className="text-slate-500">본인만</strong> 볼 수 있습니다.
+          (교육용 데모 · 테스트 데이터 기준)
+        </p>
+      </div>
     </div>
   );
 }
